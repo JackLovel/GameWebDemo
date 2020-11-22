@@ -45,6 +45,25 @@ namespace GameWebDemo.Controllers
             return View();
         }  
         
+        [HttpPost]
+        public ActionResult Register(Account account)
+        {
+            Account a = account;
+            if (a != null)
+            {
+                db.Accounts.Add(a);
+                db.SaveChanges();
+
+                TempData["msg"] = "注册成功，请登录！";
+                return View("login");
+            }
+            else 
+            {
+                TempData["msg"] = "注册失败，请重新注册！";
+                return View();
+            }
+        }  
+        
         [HttpGet]
         public ActionResult Logout()
         {
