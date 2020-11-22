@@ -39,6 +39,7 @@ namespace GameWebDemo.Controllers
             }
         }
         
+        [HttpGet]
         public ActionResult Register()
         {
             return View();
@@ -50,5 +51,7 @@ namespace GameWebDemo.Controllers
             Session["login"] = null;
             return RedirectToAction("Index", "Home");
         }
+
+
     }
 }
