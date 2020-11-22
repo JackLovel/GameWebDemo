@@ -47,6 +47,54 @@
     <script>
         // 在页面加载的时候，执行js脚本完成对本页面中相关标签输入内容的验证。
         // 使用 jquery 插件
+        $(function () {
+            // 验证的内容是表单中的标签，标签输入的内容需要符合我们制定的规则 
+            $("#RegisterForm").validate({
+                rules: {
+                    // 写入要检验的标签的name属性
+                    AccountName: {
+                        required: true,
+                        minlength: 4
+                    },
+                    AccountPwd: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 12
+                    },
+                    ConfirmPassword: {
+                        equalTo: "#Pwd"
+                    },
+                    AccountEmail: {
+                        required: true,
+                        email: true,
+                    },
+                    agree: {
+                        required: true
+                    }
+                }, 
+                message: {
+                    AccountName: {
+                        required: "不能为空",
+                        minlength: "用户名最少输入4个字符!"
+                    }, 
+                    AccountPwd: {
+                        required: "不能为空",
+                        minlength: "密码最少输入4个字符!",
+                        maxlength: "密码最多输入12个字符!"
+                    },
+                    ConfirmPassword: {
+                        equalTo: "密码不一致"
+                    },
+                    AccountEmail: {
+                        required: "不能为空",
+                        email: "邮箱的格式不正确"
+                    },
+                    agree: {
+                        required: "必须勾选协议才能注册！"
+                    }
+                }, 
+            })
+        })
     </script>
 </body>
 </html>
