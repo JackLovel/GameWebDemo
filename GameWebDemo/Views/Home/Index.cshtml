@@ -1,0 +1,39 @@
+@using GameWebDemo.Models
+@{
+    List<Msg> list = ViewBag.list;
+    ViewBag.Title = "首页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+    <div id="clink">
+        <img src="~/img/icon_home2.png"/>
+        @Html.ActionLink("首页", "Index", "Home")
+    </div>
+    <div id="list">
+        @foreach (var item in list)
+        {
+            <dl>
+                <dt>
+                    <img src="@item.MsgPhoto" />
+                </dt>
+                <dd id="title">
+                    <a href="#">
+                        @item.MsgTitle
+                    </a>
+                </dd>
+                <dd id="txt">
+                    <a href="#">
+                        @item.MsgText
+                    </a>
+                </dd>
+                <dd id="type">
+                    <img src="~/img/icon_author.png" /><span>@item.Account.AccountName</span>
+                    <img src="~/img/icon_clock.png" /><span>@item.MsgTime</span>
+                    <img src="~/img/icon_hit.png" /><span>@item.MsgHit</span>
+                </dd>
+            </dl>
+        }
+        <div style="clear:both"></div>
+    </div>
+</div>
