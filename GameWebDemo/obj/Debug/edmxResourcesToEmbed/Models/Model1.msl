@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GameDBModelStoreContainer" CdmEntityContainer="GameDBEntities1">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="GameDBModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountPwd" ColumnName="AccountPwd" />
+          <ScalarProperty Name="AccountSex" ColumnName="AccountSex" />
+          <ScalarProperty Name="AccountEmail" ColumnName="AccountEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Msgs">
+      <EntityTypeMapping TypeName="GameDBModel.Msg">
+        <MappingFragment StoreEntitySet="Msg">
+          <ScalarProperty Name="MsgID" ColumnName="MsgID" />
+          <ScalarProperty Name="MsgTitle" ColumnName="MsgTitle" />
+          <ScalarProperty Name="MsgText" ColumnName="MsgText" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="MsgPhoto" ColumnName="MsgPhoto" />
+          <ScalarProperty Name="MsgTime" ColumnName="MsgTime" />
+          <ScalarProperty Name="MsgHit" ColumnName="MsgHit" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -13,10 +13,10 @@ namespace GameWebDemo.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GameDBEntities : DbContext
+    public partial class GameDBEntities1 : DbContext
     {
-        public GameDBEntities()
-            : base("name=GameDBEntities")
+        public GameDBEntities1()
+            : base("name=GameDBEntities1")
         {
         }
     

@@ -9,22 +9,29 @@
     @*使用绑定的写法*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="/css/global.css" rel="stylesheet" />
+
+    @*常规写法*@
+    @*<link href="/css/global.css" rel="stylesheet" />*@
 </head>
 <body>
     <div id="all">
         <!--页眉-->
         <div id="head">
             <div id="user">
+                @*
+                    判断用户登录状态，通过session传递用户的登录状态，如果取值为空，显示登录和注册的选项
+                    设计：所有的用户控制 设计在“Account”控制器中
+                *@
                 @if (Session["login"] == null)
                 {
                     <span>
-                        <a href="/Account/Login" target="_blank">登录</a> |
-                        <a href="/Account/Register" target="_blank"> 注册 </a>
+                        @Html.ActionLink("登录", "Login", "Account") |
+                        @Html.ActionLink("注册", "Register", "Account")
                     </span>
                 }
                 else
                 {
+                    // 从session 获取保平录的用户名
                     string uname = ((Account)Session["login"]).AccountName;
                     <span>
                         @uname 欢迎您!

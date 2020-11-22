@@ -90,7 +90,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GameDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GameDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Msgs" EntityType="Self.Msg" />
           <AssociationSet Name="FK__Msg__AccountID__286302EC" Association="Self.FK__Msg__AccountID__286302EC">
@@ -103,7 +103,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GameDBModelStoreContainer" CdmEntityContainer="GameDBEntities">
+        <EntityContainerMapping StorageEntityContainer="GameDBModelStoreContainer" CdmEntityContainer="GameDBEntities1">
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="GameDBModel.Account">
               <MappingFragment StoreEntitySet="Account">

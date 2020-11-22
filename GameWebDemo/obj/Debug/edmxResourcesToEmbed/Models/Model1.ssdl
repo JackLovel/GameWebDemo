@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GameDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AccountPwd" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AccountSex" Type="int" />
+    <Property Name="AccountEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Msg">
+    <Key>
+      <PropertyRef Name="MsgID" />
+    </Key>
+    <Property Name="MsgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MsgTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MsgText" Type="text" />
+    <Property Name="MsgType" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="MsgPhoto" Type="nvarchar" MaxLength="100" />
+    <Property Name="MsgTime" Type="datetime" Nullable="false" />
+    <Property Name="MsgHit" Type="int" />
+    <Property Name="AccountID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Msg__AccountID__286302EC">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Msg" Type="Self.Msg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="Msg">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GameDBModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Msg" EntityType="Self.Msg" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Msg__AccountID__286302EC" Association="Self.FK__Msg__AccountID__286302EC">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Msg" EntitySet="Msg" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
