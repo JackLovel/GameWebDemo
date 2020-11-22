@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using GameWebDemo.Models; 
+using GameWebDemo.Models;
 
 namespace GameWebDemo.Controllers
 {
@@ -45,6 +42,13 @@ namespace GameWebDemo.Controllers
         public ActionResult Register()
         {
             return View();
+        }  
+        
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session["login"] = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

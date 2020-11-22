@@ -30,9 +30,10 @@
                 {
                     string uname = ((Account)Session["login"]).AccountName;
                     <span>
-                        @uname 欢迎您!
-                        | <a href="/Msg/Index" target="_blank">信息管理</a>
-                    </span>
+                    @uname 欢迎您!
+                    | <a href="/Msg/Index" target="_blank">信息管理</a> |                      
+                        <a href="/Account/Logout">注销</a>
+                        </span>
                 }
             </div>
             <div style="clear:both;"></div>
