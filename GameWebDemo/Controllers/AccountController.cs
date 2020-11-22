@@ -13,7 +13,6 @@ namespace GameWebDemo.Controllers
             return View();
         }
 
-        // GET: Account
         public ActionResult Login()
         {
             return View();
