@@ -2,18 +2,18 @@
 @using GameWebDemo.Models
 
 @{
-    List<Msg> list = ViewBag.list;
-    ViewBag.Title = "";
+    ViewBag.Title = "新闻公告";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="content">
     <div id="clink">
         <img src="~/img/icon_home2.png" />
-        @Html.ActionLink("首页", "Index", "Home")>>
+        @Html.ActionLink("首页", "index", "home")>
+        @Html.ActionLink("新闻公告", "news", "home")
     </div>
     <div id="list">
-        @foreach (var item in list)
+        @foreach (var item in Model)
         {
             <dl>
                 <dt>

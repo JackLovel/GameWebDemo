@@ -240,6 +240,8 @@
     <Content Include="Views\Msg\Edit.cshtml" />
     <Content Include="Views\Msg\Create.cshtml" />
     <Content Include="Views\Home\news.cshtml" />
+    <Content Include="Views\Home\heros.cshtml" />
+    <Content Include="Views\Home\videos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

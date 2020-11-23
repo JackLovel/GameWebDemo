@@ -23,7 +23,20 @@ namespace GameWebDemo.Controllers
         {
             List<Msg> list = db.Msgs.Include("Account").Where(m => m.MsgType == "新闻公告").ToList();
             ViewBag.list = list; 
-            return View();
+            return View(list);
+        }
+
+        public ActionResult heros()
+        {
+            List<Msg> list = db.Msgs.Include("Account").Where(m => m.MsgType == "英雄档案").ToList();
+            ViewBag.list = list;
+            return View(list);
+        }       
+        
+        public ActionResult videos()
+        {
+            List<Msg> list = db.Msgs.Include("Account").Where(m => m.MsgType == "图片视频").ToList();
+            return View(list);
         }
     }
 }

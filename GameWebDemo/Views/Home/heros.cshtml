@@ -1,29 +1,33 @@
+﻿@model List<GameWebDemo.Models.Msg>
 @using GameWebDemo.Models
+
 @{
-    List<Msg> list = ViewBag.list;
-    ViewBag.Title = "首页";
+    ViewBag.Title = "英雄档案";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="content">
     <div id="clink">
-        <img src="~/img/icon_home2.png"/>
-        @Html.ActionLink("首页", "Index", "Home")>
+        <img src="~/img/icon_home2.png" />
+        @Html.ActionLink("首页", "index", "home")>
+        @Html.ActionLink("英雄档案", "heros", "home")
     </div>
     <div id="list">
-        @foreach (var item in list)
+        @foreach (var item in Model)
         {
             <dl>
                 <dt>
-                    <img src="@item.MsgPhoto" />
+                    <a href="/Msg/Detail?Msg_id=@item.MsgID">
+                        <img src="@item.MsgPhoto" />
+                    </a>
                 </dt>
                 <dd id="title">
-                    <a href="#">
+                    <a href="/Msg/Detail?Msg_id=@item.MsgID">
                         @item.MsgTitle
                     </a>
                 </dd>
                 <dd id="txt">
-                    <a href="#">
+                    <a href="/Msg/Detail?Msg_id=@item.MsgID">
                         @item.MsgText
                     </a>
                 </dd>
