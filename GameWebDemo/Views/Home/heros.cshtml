@@ -12,7 +12,8 @@
         @Html.ActionLink("首页", "index", "home")>
         @Html.ActionLink("英雄档案", "heros", "home")
     </div>
-    <div id="list">
+    @*图文混排，英雄列表*@
+    <div id="heros">
         @foreach (var item in Model)
         {
             <dl>
@@ -25,16 +26,6 @@
                     <a href="/Msg/Detail?Msg_id=@item.MsgID">
                         @item.MsgTitle
                     </a>
-                </dd>
-                <dd id="txt">
-                    <a href="/Msg/Detail?Msg_id=@item.MsgID">
-                        @item.MsgText
-                    </a>
-                </dd>
-                <dd id="type">
-                    <img src="~/img/icon_author.png" /><span>@item.Account.AccountName</span>
-                    <img src="~/img/icon_clock.png" /><span>@item.MsgTime</span>
-                    <img src="~/img/icon_hit.png" /><span>@item.MsgHit</span>
                 </dd>
             </dl>
         }

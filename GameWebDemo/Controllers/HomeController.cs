@@ -35,7 +35,7 @@ namespace GameWebDemo.Controllers
         
         public ActionResult videos()
         {
-            List<Msg> list = db.Msgs.Include("Account").Where(m => m.MsgType == "图片视频").ToList();
+            List<Msg> list = db.Msgs.Include("Account").Where(m => m.MsgType == "视频图片").ToList();
             return View(list);
         }
     }
