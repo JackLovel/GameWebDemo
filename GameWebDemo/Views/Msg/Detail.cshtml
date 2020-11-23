@@ -1,0 +1,33 @@
+﻿@model GameWebDemo.Models.Msg
+@using GameWebDemo.Models 
+@{
+    ViewBag.Title = "详情页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+    <div id="clink">
+        <img src="~/img/icon_home2.png"/>>
+        <a href="/Home/Index">首页</a> >>
+        <a href="/Msg/Index">管理首页</a>
+    </div>
+    <div style="text-align:center;font-size:30px">
+        <div>
+            <span>@Model.MsgTitle</span>
+        </div>
+        <div>
+            <img src="~/img/icon_author.png" />
+            <span>@Model.MsgTitle</span>
+            <img src="~/img/icon_clock.png" />
+            <span>@Model.MsgTime</span>
+            <img src="~/img/icon_hit.png" />
+            <span>@Model.MsgHit</span>
+        </div>
+        <div>
+            <img src="@Model.MsgPhoto" style="height:200px;width:200px" />
+        </div>
+        <div>
+            <span>@Model.MsgText</span>
+        </div>
+    </div>
+    </div>
