@@ -1,9 +1,9 @@
-﻿@model IEnumerable<GameWebDemo.Models.Msg>
-@using GameWebDemo.Models 
+﻿@model List<GameWebDemo.Models.Msg>
+@using GameWebDemo.Models
 
 @{
     List<Msg> list = ViewBag.list;
-    ViewBag.Title = "首页";
+    ViewBag.Title = "";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,21 +13,21 @@
         @Html.ActionLink("首页", "Index", "Home")>>
     </div>
     <div id="list">
-        @foreach (Msg item in list)
+        @foreach (var item in list)
         {
             <dl>
                 <dt>
-                    <a href="/Msg/Delete?Msg_id=@item.MsgID">
+                    <a href="/Msg/Detail?Msg_id=@item.MsgID">
                         <img src="@item.MsgPhoto" />
                     </a>
                 </dt>
                 <dd id="title">
-                    <a href="/Msg/Delete?Msg_id=@item.MsgID">
+                    <a href="/Msg/Detail?Msg_id=@item.MsgID">
                         @item.MsgTitle
                     </a>
                 </dd>
                 <dd id="txt">
-                    <a href="/Msg/Delete?Msg_id=@item.MsgID">
+                    <a href="/Msg/Detail?Msg_id=@item.MsgID">
                         @item.MsgText
                     </a>
                 </dd>

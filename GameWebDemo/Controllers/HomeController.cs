@@ -18,5 +18,12 @@ namespace GameWebDemo.Controllers
             ViewBag.list = db.Msgs.Include("Account").OrderByDescending(m => m.MsgTime).ToList(); 
             return View();
         }
+
+        public ActionResult news() 
+        {
+            List<Msg> list = db.Msgs.Include("Account").Where(m => m.MsgType == "新闻公告").ToList();
+            ViewBag.list = list; 
+            return View();
+        }
     }
 }
