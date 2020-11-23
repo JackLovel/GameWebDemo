@@ -1,0 +1,44 @@
+﻿@model GameWebDemo.Models.Msg
+@using GameWebDemo.Models
+@{
+    ViewBag.Title = "信息发布";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+    <div id="clink">
+        <img src="~/img/icon_home2.png" />
+        <a href="/Home/Index">首页</a>>
+        <a href="/Msg/Index">管理首页</a>>>信息添加
+    </div>
+    <div>
+
+        @*
+            enctype = "multipart/form-data" 用于上传文件
+        *@
+        @using (Html.BeginForm("create", "msg", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table class="table table-hover">
+                <tr>
+                    <td>文章标题</td>
+                    <td>@Html.TextBoxFor(m => m.MsgTitle)</td>
+                </tr>
+                <tr>
+                    <td>文章内容</td>
+                    <td>@Html.TextAreaFor(m => m.MsgText)</td>
+                </tr>
+                <tr>
+                    <td>文章类型</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.MsgType, new SelectList(new[] { "新闻公告", "视频图片", "英雄档案" }))
+                    </td>
+                </tr>
+                <tr>
+                    <td>修改图片</td>
+                    <td><input type="file" name="PhotoFile" /></td>
+                </tr>
+            </table>
+            <input type="submit" value="修改" class="btn btn-default" />
+        }
+    </div>
+</div>
